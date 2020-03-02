@@ -32,7 +32,7 @@ export const GlobalProvider = ({ children }) => {
     // action
     async function getTransactions() {
         try {
-            const res = await axios.get('http://localhost:5000/api/v2/', auth);
+            const res = await axios.get('https://mysterious-basin-48046.herokuapp.com/api/v2/', auth);
             setTimeout(() => {
                 dispatch({
                     type: 'GET_TRANSACTIOS',
@@ -50,7 +50,7 @@ export const GlobalProvider = ({ children }) => {
 
     async function deleteTransaction(id) {
         try {
-            await axios.delete(`http://localhost:5000/api/v2/${id}`, auth)
+            await axios.delete(`https://mysterious-basin-48046.herokuapp.com/api/v2/${id}`, auth)
             dispatch({
                 type: 'DELETE_TRANSACTION',
                 payload: id
@@ -66,7 +66,7 @@ export const GlobalProvider = ({ children }) => {
 
     async function addTransaction(transactions) {
         try {
-            const res = await axios.post('http://localhost:5000/api/v2/', transactions, auth)
+            const res = await axios.post('https://mysterious-basin-48046.herokuapp.com/api/v2/', transactions, auth)
             dispatch({
                 type: 'ADD_TRANSACTION',
                 payload: res.data.data
@@ -86,7 +86,7 @@ export const GlobalProvider = ({ children }) => {
             }
         }
         try {
-            const res = await axios.post('http://localhost:5000/api/v1/login', data, config)
+            const res = await axios.post('https://mysterious-basin-48046.herokuapp.com/api/v1/login', data, config)
             dispatch({
                 type: 'LOGIN',
                 payload: res.data
