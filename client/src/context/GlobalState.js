@@ -93,7 +93,6 @@ export const GlobalProvider = ({ children }) => {
             })
             localStorage.setItem('token', res.data.data);
         } catch (err) {
-            console.log(err.response)
             dispatch({
                 type: 'LOGIN_ERROR',
                 payload: err.response.data,
