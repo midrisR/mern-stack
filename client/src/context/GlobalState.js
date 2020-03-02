@@ -89,9 +89,9 @@ export const GlobalProvider = ({ children }) => {
             const res = await axios.post('https://mysterious-basin-48046.herokuapp.com/api/v1/login', data, config)
             dispatch({
                 type: 'LOGIN',
-                payload: res.data
+                payload: localStorage.setItem('token', res.data.data)
             })
-            localStorage.setItem('token', res.data.data);
+
         } catch (err) {
             dispatch({
                 type: 'LOGIN_ERROR',
